@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه آنلاین مگا استور</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+        
+        .heart-beat {
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+        
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .nurse-gradient {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confetti-fall 3s linear infinite;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* ریسپانسیو برای موبایل */
+        @media (max-width: 768px) {
+            .max-w-md {
+                max-width: 90% !important;
+                margin: 0 1rem;
+            }
+            
+            .max-w-lg {
+                max-width: 95% !important;
+                margin: 0 1rem;
+            }
+            
+            .text-4xl {
+                font-size: 2rem !important;
+            }
+            
+            .text-3xl {
+                font-size: 1.8rem !important;
+            }
+            
+            .text-2xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-lg {
+                font-size: 1rem !important;
+            }
+            
+            .p-8 {
+                padding: 1.5rem !important;
+            }
+            
+            .py-8 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            
+            .w-32 {
+                width: 6rem !important;
+                height: 6rem !important;
+            }
+            
+            .w-28 {
+                width: 5rem !important;
+                height: 5rem !important;
+            }
+            
+            .text-6xl {
+                font-size: 3rem !important;
+            }
+            
+            .text-3xl {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-gray-100"><!-- صفحه اول - فروشگاه فیک -->
+  <div id="fake-store" class="min-h-screen"><!-- هدر فروشگاه -->
+   <header class="bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+     <div class="flex justify-between items-center">
+      <div class="text-2xl font-bold text-purple-600">
+       🛍️ مگا استور
+      </div>
+      <div class="flex items-center space-x-4 space-x-reverse"><span class="text-gray-600">سبد خرید (0)</span> <button class="bg-purple-600 text-white px-4 py-2 rounded-lg">ورود</button>
+      </div>
+     </div>
+    </div>
+   </header><!-- محتوای اصلی فروشگاه -->
+   <main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="text-center mb-8">
+     <h1 class="text-4xl font-bold text-gray-800 mb-4">خوش آمدید به مگا استور!</h1>
+     <p class="text-gray-600 text-lg">بهترین محصولات را با بهترین قیمت‌ها پیدا کنید</p>
+    </div><!-- محصولات فیک -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+     <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"><span class="text-4xl">📱</span>
+      </div>
+      <h3 class="text-xl font-semibold mb-2">گوشی هوشمند</h3>
+      <p class="text-gray-600 mb-4">آخرین مدل با بهترین کیفیت</p>
+      <div class="text-2xl font-bold text-purple-600 mb-4">
+       ۱۵,۰۰۰,۰۰۰ تومان
+      </div><button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">افزودن به سبد</button>
+     </div>
+     <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"><span class="text-4xl">💻</span>
+      </div>
+      <h3 class="text-xl font-semibold mb-2">لپ تاپ گیمینگ</h3>
+      <p class="text-gray-600 mb-4">برای بازی‌های سنگین</p>
+      <div class="text-2xl font-bold text-purple-600 mb-4">
+       ۲۵,۰۰۰,۰۰۰ تومان
+      </div><button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">افزودن به سبد</button>
+     </div>
+     <div class="bg-white rounded-lg shadow-md p-6">
+      <div class="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"><span class="text-4xl">🎧</span>
+      </div>
+      <h3 class="text-xl font-semibold mb-2">هدفون بی‌سیم</h3>
+      <p class="text-gray-600 mb-4">صدای بی‌نظیر و کیفیت عالی</p>
+      <div class="text-2xl font-bold text-purple-600 mb-4">
+       ۳,۰۰۰,۰۰۰ تومان
+      </div><button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">افزودن به سبد</button>
+     </div>
+    </div><!-- دکمه مخفی برای شروع -->
+    <div class="text-center"><button id="secret-btn" class="bg-pink-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-pink-600 transition-all duration-300 bounce"> 🎁 پیشنهاد ویژه امروز! </button>
+    </div>
+   </main>
+  </div><!-- صفحه سوال اول -->
+  <div id="question1" class="hidden min-h-screen gradient-bg flex items-center justify-center">
+   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full mx-4 text-center slide-up">
+    <div class="text-6xl mb-6 float">
+     💕
+    </div>
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">سوال اول:</h2>
+    <p class="text-lg text-gray-700 mb-8">دوست پسرتو دوست داری؟ 😏</p>
+    <div class="space-y-4"><button id="yes1" class="w-full btn-success text-white py-3 rounded-xl text-lg font-semibold"> آره، خیلی! 😍 </button> <button id="no1" class="w-full btn-danger text-white py-3 rounded-xl text-lg font-semibold"> نه، اصلاً! 😤 </button>
+    </div>
+   </div>
+  </div><!-- صفحه اخطار برای جواب نه -->
+  <div id="warning" class="hidden min-h-screen bg-red-500 flex items-center justify-center">
+   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full mx-4 text-center slide-up">
+    <div class="text-6xl mb-6 bounce">
+     ⚠️
+    </div>
+    <h2 class="text-2xl font-bold text-red-600 mb-6">اخطار!</h2>
+    <p class="text-lg text-gray-700 mb-8">باید دوسش داشته باشی!!! 😂</p><button id="back-to-q1" class="w-full btn-primary text-white py-3 rounded-xl text-lg font-semibold"> باشه، برمی‌گردم! 😅 </button>
+   </div>
+  </div><!-- صفحه سوال دوم -->
+  <div id="question2" class="hidden min-h-screen gradient-bg flex items-center justify-center">
+   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full mx-4 text-center slide-up">
+    <div class="text-6xl mb-6 heart-beat">
+     💖
+    </div>
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">سوال دوم:</h2>
+    <p class="text-lg text-gray-700 mb-8">فکر می‌کنی اون هم تو رو دوست داره؟ 🤔</p>
+    <div class="space-y-4"><button id="yes2" class="w-full btn-success text-white py-3 rounded-xl text-lg font-semibold"> امیدوارم که آره! 🥰 </button> <button id="no2" class="w-full btn-danger text-white py-3 rounded-xl text-lg font-semibold"> نمی‌دونم... 😔 </button>
+    </div>
+   </div>
+  </div><!-- صفحه تشویق -->
+  <div id="encouragement" class="hidden min-h-screen bg-green-500 flex items-center justify-center">
+   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full mx-4 text-center slide-up">
+    <div class="text-6xl mb-6 bounce">
+     😍
+    </div>
+    <h2 class="text-2xl font-bold text-green-600 mb-6">معلومه که دوستت داره!!!!</h2>
+    <p class="text-lg text-gray-700 mb-8">حالا دوباره جواب بده! 😉</p><button id="back-to-q2" class="w-full btn-primary text-white py-3 rounded-xl text-lg font-semibold"> باشه، برمی‌گردم! 😊 </button>
+   </div>
+  </div><!-- صفحه سوال سوم -->
+  <div id="question3" class="hidden min-h-screen gradient-bg flex items-center justify-center">
+   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full mx-4 text-center slide-up">
+    <div class="text-6xl mb-6 float">
+     🌟
+    </div>
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">سوال آخر:</h2>
+    <p class="text-lg text-gray-700 mb-8">آماده‌ای برای یه سورپرایز؟ 🎉</p>
+    <div class="space-y-4"><button id="ready" class="w-full btn-primary text-white py-3 rounded-xl text-lg font-semibold"> آره، آماده‌ام! ✨ </button>
+    </div>
+   </div>
+  </div><!-- صفحه تبریک نهایی -->
+  <div id="final-page" class="hidden min-h-screen nurse-gradient flex items-center justify-center relative overflow-hidden">
+   <div class="celebration" id="celebration"></div>
+   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-lg w-full mx-4 text-center slide-up relative z-10"><!-- لوگو تبریک روز پرستار -->
+    <div class="mb-6">
+     <div class="w-32 h-32 mx-auto bg-pink-100 rounded-full flex items-center justify-center mb-4 float"><!-- اینجا عکس لوگو روز پرستار قرار بگیره: <img src="images/nurse-logo.png" alt="روز پرستار" class="w-full h-full object-cover rounded-full"> --> <span class="text-6xl">👩‍⚕️</span>
+     </div>
+    </div>
+    <h1 class="text-3xl font-bold text-pink-600 mb-4 heart-beat">🌸 روز پرستار مبارک! 🌸</h1>
+    <div class="text-lg text-gray-700 mb-6 leading-relaxed">
+     <p class="mb-4">عزیزم! 💕</p>
+     <p class="mb-4">امروز روز تو و همه فرشته‌های سفیدپوش مثل توئه! 👩‍⚕️✨</p>
+     <p class="mb-4">تو که هر روز با مهربونیت جون آدم‌ها رو نجات می‌دی، امروز روز تقدیر از توئه! 🏥💖</p>
+     <p class="mb-6">امیدوارم همیشه شاد و سلامت باشی و دوست پسرت هم قدر تو رو بدونه! 😉💕</p>
+    </div><!-- عکس شما -->
+    <div class="mb-6">
+     <div class="w-28 h-28 mx-auto bg-gray-200 rounded-full flex items-center justify-center border-4 border-pink-300 overflow-hidden"><!-- اینجا عکس شما قرار بگیره: <img src="images/our-photo.jpg" alt="عکس ما" class="w-full h-full object-cover"> --> <span class="text-3xl">📸</span>
+     </div>
+    </div>
+    <div class="text-center">
+     <p class="text-pink-600 font-semibold text-lg mb-4">با عشق و احترام ❤️</p>
+     <p class="text-gray-600">روزت مبارک باشه عزیزم! 🎉</p>
+    </div><button id="restart" class="mt-8 w-full btn-primary text-white py-3 rounded-xl text-lg font-semibold"> 🔄 دوباره شروع کن! </button>
+   </div>
+  </div>
+  <script>
+        // المان‌ها
+        const fakeStore = document.getElementById('fake-store');
+        const question1 = document.getElementById('question1');
+        const question2 = document.getElementById('question2');
+        const question3 = document.getElementById('question3');
+        const warning = document.getElementById('warning');
+        const encouragement = document.getElementById('encouragement');
+        const finalPage = document.getElementById('final-page');
+        
+        // دکمه‌ها
+        const secretBtn = document.getElementById('secret-btn');
+        const yes1 = document.getElementById('yes1');
+        const no1 = document.getElementById('no1');
+        const backToQ1 = document.getElementById('back-to-q1');
+        const yes2 = document.getElementById('yes2');
+        const no2 = document.getElementById('no2');
+        const backToQ2 = document.getElementById('back-to-q2');
+        const ready = document.getElementById('ready');
+        const restart = document.getElementById('restart');
+        
+        // تابع مخفی کردن همه صفحات
+        function hideAll() {
+            fakeStore.classList.add('hidden');
+            question1.classList.add('hidden');
+            question2.classList.add('hidden');
+            question3.classList.add('hidden');
+            warning.classList.add('hidden');
+            encouragement.classList.add('hidden');
+            finalPage.classList.add('hidden');
+        }
+        
+        // تابع نمایش صفحه
+        function showPage(page) {
+            hideAll();
+            page.classList.remove('hidden');
+        }
+        
+        // ایجاد کنفتی
+        function createConfetti() {
+            const celebration = document.getElementById('celebration');
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                celebration.appendChild(confetti);
+            }
+            
+            // پاک کردن کنفتی بعد از 5 ثانیه
+            setTimeout(() => {
+                celebration.innerHTML = '';
+            }, 5000);
+        }
+        
+        // Event Listeners
+        secretBtn.addEventListener('click', () => {
+            showPage(question1);
+        });
+        
+        yes1.addEventListener('click', () => {
+            showPage(question2);
+        });
+        
+        no1.addEventListener('click', () => {
+            showPage(warning);
+        });
+        
+        backToQ1.addEventListener('click', () => {
+            showPage(question1);
+        });
+        
+        yes2.addEventListener('click', () => {
+            showPage(question3);
+        });
+        
+        no2.addEventListener('click', () => {
+            showPage(encouragement);
+        });
+        
+        backToQ2.addEventListener('click', () => {
+            showPage(question2);
+        });
+        
+        ready.addEventListener('click', () => {
+            showPage(finalPage);
+            createConfetti();
+        });
+        
+        restart.addEventListener('click', () => {
+            showPage(fakeStore);
+        });
+        
+        // جلوگیری از استفاده از alert/confirm/prompt
+        // همه تعاملات از طریق UI انجام می‌شود
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'995b6a72c17882bb',t:'MTc2MTY2NDgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
