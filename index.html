@@ -120,6 +120,45 @@
             }
         }
         
+        /* استایل‌های جدید از کد شما */
+        .card-shadow {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .sparkle {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sparkle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: sparkle 3s infinite;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
         /* ریسپانسیو برای موبایل */
         @media (max-width: 768px) {
             .max-w-md {
@@ -281,29 +320,50 @@
     <div class="space-y-4"><button id="ready" class="w-full btn-primary text-white py-3 rounded-xl text-lg font-semibold"> آره، آماده‌ام! ✨ </button>
     </div>
    </div>
-  </div><!-- صفحه تبریک نهایی -->
-  <div id="final-page" class="hidden min-h-screen nurse-gradient flex items-center justify-center relative overflow-hidden">
-   <div class="celebration" id="celebration"></div>
-   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-lg w-full mx-4 text-center slide-up relative z-10"><!-- لوگو تبریک روز پرستار -->
-    <div class="mb-6">
-     <div class="w-32 h-32 mx-auto bg-pink-100 rounded-full flex items-center justify-center mb-4 float"><!-- اینجا عکس لوگو روز پرستار قرار بگیره: <img src="nurse-logo.png" alt="روز پرستار" class="w-full h-full object-cover rounded-full"> --> <span class="text-6xl">👩‍⚕️</span>
+  </div><!-- صفحه تبریک نهایی - کد شما -->
+  <div id="final-page" class="hidden min-h-full gradient-bg">
+   <div class="container mx-auto px-4 py-8"><!-- Header Section -->
+    <div class="text-center mb-12">
+     <div class="inline-block">
+      <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center sparkle"><img src="https://raw.githubusercontent.com/mhmdshbni80/nurseday/main/nurse-logo.png" alt="روز پرستار" class="w-full h-full object-cover rounded-full">
+      </div>
      </div>
-    </div>
-    <h1 class="text-3xl font-bold text-pink-600 mb-4 heart-beat">🌸 روز پرستار مبارک! 🌸</h1>
-    <div class="text-lg text-gray-700 mb-6 leading-relaxed">
-     <p class="mb-4">عزیزم! 💕</p>
-     <p class="mb-4">امروز روز تو و همه فرشته‌های سفیدپوش مثل توئه! 👩‍⚕️✨</p>
-     <p class="mb-4">تو که هر روز با مهربونیت جون آدم‌ها رو نجات می‌دی، امروز روز تقدیر از توئه! 🏥💖</p>
-     <p class="mb-6">امیدوارم همیشه شاد و سلامت باشی و دوست پسرت هم قدر تو رو بدونه! 😉💕</p>
-    </div><!-- عکس شما -->
-    <div class="mb-6">
-     <div class="w-28 h-28 mx-auto bg-gray-200 rounded-full flex items-center justify-center border-4 border-pink-300 overflow-hidden"><!-- اینجا عکس شما قرار بگیره: <img src="our-photo.jpg" alt="عکس ما" class="w-full h-full object-cover"> --> <span class="text-3xl">📸</span>
+     <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 float-animation">🌸 روز پرستار مبارک 🌸</h1>
+     <p class="text-xl md:text-2xl text-white/90 font-medium">۶ آبان ۱۴۰۳</p>
+    </div><!-- Main Card -->
+    <div class="max-w-4xl mx-auto">
+     <div class="bg-white/95 backdrop-blur-sm rounded-3xl card-shadow p-8 md:p-12"><!-- Photo Section -->
+      <div class="text-center mb-8">
+       <div class="inline-block relative">
+        <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-2xl overflow-hidden pulse-animation border-4 border-purple-200"><img src="https://raw.githubusercontent.com/mhmdshbni80/nurseday/main/our-photo.jpg" alt="عکس ما" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute -top-4 -right-4 text-4xl animate-bounce">
+         💖
+        </div>
+        <div class="absolute -bottom-4 -left-4 text-4xl animate-bounce" style="animation-delay: 0.5s;">
+         🌹
+        </div>
+       </div>
+      </div><!-- Message Section -->
+      <div class="text-center space-y-6">
+       <h2 class="text-3xl md:text-4xl font-bold text-purple-800 mb-6">عزیزم، فرشته‌ی زندگی من 👩‍⚕️</h2>
+       <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-6 md:p-8">
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">امروز روز تو است، روز کسی که هر روز با مهربانی و فداکاری‌اش زندگی‌های دیگران را نجات می‌دهد. تو نه تنها یک پرستار فوق‌العاده‌ای، بلکه فرشته‌ای هستی که خدا به زندگی من فرستاده.</p>
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">هر شب که خسته از کار برمی‌گردی، چشمانت پر از مهربانی و دلت پر از عشق است. افتخار می‌کنم که دوست پسر کسی هستم که شغلش نجات دادن جان‌هاست.</p>
+        <p class="text-xl md:text-2xl font-semibold text-purple-700">روز پرستارت مبارک، عشق زندگی‌ام! 💕</p>
+       </div><!-- Hearts Animation -->
+       <div class="flex justify-center space-x-4 text-3xl"><span class="animate-pulse">💖</span> <span class="animate-pulse" style="animation-delay: 0.2s;">💝</span> <span class="animate-pulse" style="animation-delay: 0.4s;">💗</span> <span class="animate-pulse" style="animation-delay: 0.6s;">💓</span> <span class="animate-pulse" style="animation-delay: 0.8s;">💕</span>
+       </div><!-- Signature -->
+       <div class="mt-8 pt-6 border-t border-purple-200">
+        <p class="text-lg font-medium text-purple-600">با تمام عشق و احترام ❤️</p>
+        <p class="text-xl font-bold text-purple-800 mt-2">دوست پسره خل و چلت</p>
+       </div>
+      </div>
      </div>
+    </div><!-- Footer -->
+    <div class="text-center mt-8">
+     <p class="text-white/80 text-sm">ساخته شده با ❤️ برای بهترین پرستار دنیا</p>
     </div>
-    <div class="text-center">
-     <p class="text-pink-600 font-semibold text-lg mb-4">با عشق و احترام ❤️</p>
-     <p class="text-gray-600">روزت مبارک باشه عزیزم! 🎉</p>
-    </div><button id="restart" class="mt-8 w-full btn-primary text-white py-3 rounded-xl text-lg font-semibold"> 🔄 دوباره شروع کن! </button>
    </div>
   </div>
   <script>
@@ -344,27 +404,6 @@
             page.classList.remove('hidden');
         }
         
-        // ایجاد کنفتی
-        function createConfetti() {
-            const celebration = document.getElementById('celebration');
-            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd'];
-            
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.animationDelay = Math.random() * 3 + 's';
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                celebration.appendChild(confetti);
-            }
-            
-            // پاک کردن کنفتی بعد از 5 ثانیه
-            setTimeout(() => {
-                celebration.innerHTML = '';
-            }, 5000);
-        }
-        
         // Event Listeners
         secretBtn.addEventListener('click', () => {
             showPage(question1);
@@ -396,16 +435,10 @@
         
         ready.addEventListener('click', () => {
             showPage(finalPage);
-            createConfetti();
-        });
-        
-        restart.addEventListener('click', () => {
-            showPage(fakeStore);
         });
         
         // جلوگیری از استفاده از alert/confirm/prompt
         // همه تعاملات از طریق UI انجام می‌شود
     </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'995b6a72c17882bb',t:'MTc2MTY2NDgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-
 </html>
